@@ -8,12 +8,15 @@
 
 import UIKit
 import DataPersistence
-
+// custom Delegation
 protocol SavedFlashCardDelegate: AnyObject {
-    func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, savedFlashCard: Card)
+    func didSelectMoreButton(_ savedFlashCardCell: MainFlashCardCell, flashCard: Card)
 }
 
 class FlashCardsViewController: UIViewController {
+    // custom Delegation
+    weak var delegate: SavedFlashCardDelegate?
+
     
     private let flashCardView = FlashCardsView()
     
@@ -25,7 +28,6 @@ class FlashCardsViewController: UIViewController {
                 flashCardView.collectionView.backgroundView = EmptyView(title: "Flash Card Collection is Empty", message: "You can add flash cards by making your own in the create tab, or using the suggestions in the search tab")
             } else {
                 flashCardView.collectionView.backgroundView = nil
-                print(flashCards.count)
                 flashCardView.collectionView.reloadData()
             }
         }
@@ -63,8 +65,32 @@ extension FlashCardsViewController: DataPersistenceDelegate {
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
         getFlashCards()
     }
-    
-    
+}
+// custom delegation
+extension FlashCardsViewController: SavedFlashCardDelegate {
+    func didSelectMoreButton(_ savedFlashCardCell: MainFlashCardCell, flashCard: Card) {
+            print("didSelectMoreButton: \(flashCard.cardTitle!)")
+          let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
+                self.deleteCard(flashCard)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            present(alertController, animated: true)
+        }
+        private func deleteCard(_ flashCard: Card) {
+            guard let index = flashCards.firstIndex(of: flashCard) else {
+                return
+            }
+            do {
+                try dataPersistence.deleteItem(at: index)
+                showAlert(title: "Deleted", message: "Flash card deleted")
+                flashCardView.collectionView.reloadData()
+            } catch {
+                print("error deleting flash card: \(error)")
+            }
+        }
 }
 extension FlashCardsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -89,9 +115,10 @@ extension FlashCardsViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
+        // custom delegation
+        cell.delegate = self
         cell.configureCell(flashCards[indexPath.row])
         return cell
     }
-    
-    
+
 }

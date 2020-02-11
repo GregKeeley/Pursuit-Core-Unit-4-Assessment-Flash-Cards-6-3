@@ -10,9 +10,6 @@ import UIKit
 
 class SearchFlashCardCell: UICollectionViewCell {
     
-    private var currentFlashCard: Card!
-    weak var delegate: SavedFlashCardDelegate?
-    
     public lazy var questionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -28,7 +25,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.tintColor = .green
-        button.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
     public lazy var cellButton: UIButton = {
@@ -36,9 +33,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
-    @objc private func addButtonPressed(_ sender: UIButton) {
-        delegate?.flashCardAdded(self, savedFlashCard: currentFlashCard)
-    }
+    
     public func configureCell(_ flashCard: Card) {
         questionLabel.text = flashCard.cardTitle
         questionLabel.text = flashCard.quizTitle

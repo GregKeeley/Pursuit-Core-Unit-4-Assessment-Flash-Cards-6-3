@@ -9,6 +9,7 @@
 import UIKit
 
 class SearchView: UIView {
+    
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

@@ -32,17 +32,15 @@ class AddCardViewController: UIViewController {
         let question = addCardView.questionTextField.text
         let fact1 = addCardView.fact1TextView.text ?? ""
         let fact2 = addCardView.fact2TextView.text ?? ""
-        
-        let card = Card(id: "", cardTitle: "", quizTitle: question, facts: [fact1, fact2])
-        newFlashCard = card
-        
-        guard let newCard = newFlashCard else {
+        if question == nil || fact1.isEmpty || fact2.isEmpty {
             showAlert(title: "One or more fields left empty", message: "Please fill in each field to save flash card")
-            return }
+            return
+        }
+        newFlashCard = Card(id: "", cardTitle: question, quizTitle: "", facts: [fact1, fact2])
+        guard let newCard = newFlashCard else { return }
         do {
             try dataPersistence.createItem(newCard)
             showAlert(title: "Flash card saved!", message: "Success")
-            
         } catch {
             showAlert(title: "Error", message: "There was an error saving this flash card: \(error)")
         }
@@ -54,5 +52,16 @@ extension AddCardViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
-
+    
+}
+// Attempting to drop keyboard on textViews
+extension AddCardViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+        
+    }
 }

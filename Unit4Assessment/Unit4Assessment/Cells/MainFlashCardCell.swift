@@ -10,9 +10,9 @@
 import UIKit
 
 class MainFlashCardCell: UICollectionViewCell {
-    
+    // custom delegation
     private var currentFlashCard: Card!
-    
+    // custom delegation
     weak var delegate: SavedFlashCardDelegate?
     
     public lazy var questionLabel: UILabel = {
@@ -29,12 +29,29 @@ class MainFlashCardCell: UICollectionViewCell {
     public lazy var addButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
+        return button
+    }()
+    public lazy var cellButton: UIButton = {
+        let button = UIButton()
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
     
+    // custom delegation
+    @objc private func moreButtonPressed(_ sender: UIButton) {
+        delegate?.didSelectMoreButton(self, flashCard: currentFlashCard)
+    }
+    
+    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
+        if gesture.state == .began || gesture.state == .changed {
+            animate()
+            return
+        }
+    }
     
     public func configureCell(_ flashCard: Card) {
+        currentFlashCard = flashCard
         questionLabel.text = flashCard.cardTitle
         for fact in flashCard.facts {
             answerLabel.text = fact
@@ -47,12 +64,7 @@ class MainFlashCardCell: UICollectionViewCell {
         gesture.addTarget(self, action: #selector(didTap(_:)))
         return gesture
     }()
-    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
-        if gesture.state == .began || gesture.state == .changed {
-            animate()
-            return
-        }
-    }
+
     private func animate() {
         let duration: Double = 1.0
         if isShowingAnswer {
@@ -86,6 +98,7 @@ class MainFlashCardCell: UICollectionViewCell {
         constraintsFactsLabel()
         constraintsQuestionLabel()
         constraintsAddButton()
+        constraintsCellButton()
         addGestureRecognizer(tapGesture)
     }
     private func constraintsQuestionLabel() {
@@ -119,6 +132,18 @@ class MainFlashCardCell: UICollectionViewCell {
         
             addButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+        
+        ])
+    }
+    private func constraintsCellButton() {
+        addSubview(cellButton)
+        cellButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            cellButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            cellButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cellButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cellButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         ])
     }

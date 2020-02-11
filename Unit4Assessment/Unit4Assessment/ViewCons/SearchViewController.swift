@@ -10,6 +10,7 @@ import UIKit
 import DataPersistence
 
 class SearchViewController: UIViewController {
+    
     private let searchView = SearchView()
     
     public var dataPersistence: DataPersistence<Card>!
@@ -82,7 +83,6 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
-//        cell.delegate = self
         cell.configureCell(flashCards[indexPath.row])
         return cell
     }
