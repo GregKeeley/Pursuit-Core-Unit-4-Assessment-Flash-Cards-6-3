@@ -35,6 +35,7 @@ class FlashCardsViewController: UIViewController {
         flashCardView.collectionView.delegate = self
         flashCardView.collectionView.dataSource = self
         flashCardView.collectionView.register(MainFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
+        navigationItem.title = "All Flashcards"
     }
 
     private func getFlashCards() {

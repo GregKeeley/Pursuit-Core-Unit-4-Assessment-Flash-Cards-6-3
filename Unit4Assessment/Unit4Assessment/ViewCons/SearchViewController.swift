@@ -16,8 +16,15 @@ class SearchViewController: UIViewController {
     
     private var flashCards = [Card]() {
         didSet {
-            DispatchQueue.main.async {
-                self.searchView.collectionView.reloadData()
+            if flashCards.isEmpty {
+                searchView.collectionView.backgroundView = EmptyView(title: "Flash Card Collection is Empty", message: "You can add flash cards by making your own in the create tab, or using the suggestions in the search tab")
+            } else {
+                searchView.collectionView.backgroundView = nil
+                DispatchQueue.main.async {
+                    dump(self.flashCards)
+                    self.searchView.collectionView.reloadData()
+                }
+
             }
         }
     }
@@ -30,17 +37,25 @@ class SearchViewController: UIViewController {
         searchView.collectionView.delegate = self
         searchView.collectionView.dataSource = self
         searchView.collectionView.register(SearchFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
+        navigationItem.title = "Search Flash Cards"
         fetchFlashCards()
     }
     private func fetchFlashCards() {
-        FlashCardAPI.getFlashCards() { [weak self] (result) in
-            switch result {
-            case .failure(let appError):
-                print("failed to load flashCards: \(appError)")
-            case .success(let flashCards):
-                self?.flashCards = flashCards.cards
-            }
+        do {
+            let localFlashCards = try FlashCardAPI.fetchLocalFlashCards()
+            flashCards = localFlashCards
+        } catch {
+            print("Failed to parse local flash card: \(error)")
         }
+
+//        FlashCardAPI.getFlashCards() { [weak self] (result) in
+//            switch result {
+//            case .failure(let appError):
+//                print("failed to load flashCards: \(appError)")
+//            case .success(let flashCards):
+//                self?.flashCards = flashCards.cards
+//            }
+//        }
     }
     
 }

@@ -32,4 +32,18 @@ struct FlashCardAPI {
                     }
                 }
             }
+    static func fetchLocalFlashCards() throws -> [Card] {
+        guard let path = Bundle.main.path(forResource: "FlashCardJSONData", ofType: "json") else {
+            throw AppError.badURL("path for json data is invalid")
         }
+        guard let json = FileManager.default.contents(atPath: path) else {
+            throw AppError.noData
+        }
+        do {
+            let flashCards = try JSONDecoder().decode([Card].self, from: json)
+            return flashCards
+        } catch {
+            throw AppError.decodingError(error)
+        }
+    }
+}

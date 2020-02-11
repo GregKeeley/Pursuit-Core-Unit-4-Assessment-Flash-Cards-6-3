@@ -25,6 +25,7 @@
 		C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */; };
 		C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230623F319BA00648095 /* MainFlashCardCell.swift */; };
 		C1D8230923F3220E00648095 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230823F3220E00648095 /* EmptyView.swift */; };
+		C1D8230D23F32CE600648095 /* FlashCardJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = C1D8230C23F32CE600648095 /* FlashCardJSONData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAPI.swift; sourceTree = "<group>"; };
 		C1D8230623F319BA00648095 /* MainFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlashCardCell.swift; sourceTree = "<group>"; };
 		C1D8230823F3220E00648095 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		C1D8230C23F32CE600648095 /* FlashCardJSONData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FlashCardJSONData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */,
+				C1D8230C23F32CE600648095 /* FlashCardJSONData.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */,
 				579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */,
+				C1D8230D23F32CE600648095 /* FlashCardJSONData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

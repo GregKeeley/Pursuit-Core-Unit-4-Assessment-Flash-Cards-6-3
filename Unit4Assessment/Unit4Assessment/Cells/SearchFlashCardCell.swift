@@ -34,6 +34,7 @@ class SearchFlashCardCell: UICollectionViewCell {
     
     public func configureCell(_ flashCard: Card) {
         questionLabel.text = flashCard.cardTitle
+        questionLabel.text = flashCard.quizTitle
         for fact in flashCard.facts {
             answerLabel.text = fact
         }

@@ -20,6 +20,7 @@ class AddCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray
+        navigationItem.title = "Create a Flashcard"
     }
 
 }
