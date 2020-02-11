@@ -10,21 +10,27 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    private lazy var flashCardVC: FlashCardsViewController = {
+        let viewController = FlashCardsViewController()
+        viewController.tabBarItem = UITabBarItem(title: "Flash Cards", image: UIImage(systemName: "questionmark.circle"), tag: 0)
+        return viewController
+    }()
+    private lazy var addCardVC: AddCardViewController = {
+        let viewController = AddCardViewController()
+        viewController.tabBarItem = UITabBarItem(title: "Add Cards", image: UIImage(systemName: "plus"), tag: 1)
+        return viewController
+    }()
+    private lazy var searchVC: SearchViewController = {
+        let viewController = SearchViewController()
+        viewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 2)
+        return viewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewControllers = [UINavigationController(rootViewController: flashCardVC),UINavigationController(rootViewController: addCardVC),UINavigationController(rootViewController: searchVC)]
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
