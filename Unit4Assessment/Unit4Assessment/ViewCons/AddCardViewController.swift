@@ -30,20 +30,24 @@ class AddCardViewController: UIViewController {
     
     @objc private func saveFlashCardButtonPressed(_ sender: UIBarButtonItem) {
         let question = addCardView.questionTextField.text
-        let fact1 = addCardView.fact1TextView.text ?? ""
-        let fact2 = addCardView.fact2TextView.text ?? ""
-        if question == nil || fact1.isEmpty || fact2.isEmpty {
+        let fact1 = addCardView.fact1TextView.text
+        let fact2 = addCardView.fact2TextView.text
+        if question!.isEmpty || fact1!.isEmpty || fact2!.isEmpty {
             showAlert(title: "One or more fields left empty", message: "Please fill in each field to save flash card")
             return
         }
-        newFlashCard = Card(id: "", cardTitle: question, quizTitle: "", facts: [fact1 + fact2])
+        newFlashCard = Card(id: "", cardTitle: question, quizTitle: "", facts: [fact1! + fact2!])
         guard let newCard = newFlashCard else { return }
         do {
             try dataPersistence.createItem(newCard)
             showAlert(title: "Flash card saved!", message: "Success")
+            addCardView.questionTextField.text = ""
+            addCardView.fact1TextView.text = ""
+            addCardView.fact2TextView.text = ""
         } catch {
             showAlert(title: "Error", message: "There was an error saving this flash card: \(error)")
         }
+        
     }
     
 
