@@ -40,11 +40,22 @@ class SearchFlashCardCell: UICollectionViewCell {
     }
     
     private var isShowingAnswer = false
-    private lazy var tapGesture: UITapGestureRecognizer = {
+    private lazy var tapFlipCardGesture: UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer()
         gesture.addTarget(self, action: #selector(didTap(_:)))
         return gesture
     }()
+    private lazy var addQuestionTapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didTap(_:)))
+        return gesture
+    }()
+    @objc private func didTapAddButton(_ gesture: UITapGestureRecognizer) {
+        if gesture.state == .began || gesture.state == .changed {
+            animate()
+            return
+        }
+    }
     @objc private func didTap(_ gesture: UITapGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
             animate()
@@ -84,7 +95,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         constraintsFactsLabel()
         constraintsQuestionLabel()
         constraintsAddButton()
-        addGestureRecognizer(tapGesture)
+        addGestureRecognizer(tapFlipCardGesture)
     }
     private func constraintsQuestionLabel() {
         addSubview(questionLabel)

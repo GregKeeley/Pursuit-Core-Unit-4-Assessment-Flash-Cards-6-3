@@ -12,7 +12,7 @@ import DataPersistence
 class SearchViewController: UIViewController {
     private let searchView = SearchView()
     
-    public var dataPersistence: DataPersistence<FlashCards>!
+    public var dataPersistence: DataPersistence<Card>!
     
     private var flashCards = [Card]() {
         didSet {
@@ -42,7 +42,9 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
 }
+
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxwidth = (UIScreen.main.bounds.size.width)

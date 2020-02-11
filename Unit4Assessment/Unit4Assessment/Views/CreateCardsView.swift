@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateCardsView: UIView {
+    
     public lazy var questionTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -27,6 +28,7 @@ class CreateCardsView: UIView {
         textField.placeholder = "Enter fact #2 here"
         return textField
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -40,6 +42,7 @@ class CreateCardsView: UIView {
         constraintsFact1TextField()
         constraintsFact2TextField()
     }
+    
     private func constraintsQuestionTextField() {
         addSubview(questionTextField)
         questionTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +51,6 @@ class CreateCardsView: UIView {
             questionTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             questionTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             questionTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
-        
         
         ])
     }
@@ -62,7 +64,6 @@ class CreateCardsView: UIView {
             fact1TextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             fact1TextField.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height / 4)
         
-        
         ])
     }
     private func constraintsFact2TextField() {
@@ -74,7 +75,6 @@ class CreateCardsView: UIView {
             fact2TextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             fact2TextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             fact2TextField.heightAnchor.constraint(equalTo: fact1TextField.heightAnchor)
-        
         
         ])
     }

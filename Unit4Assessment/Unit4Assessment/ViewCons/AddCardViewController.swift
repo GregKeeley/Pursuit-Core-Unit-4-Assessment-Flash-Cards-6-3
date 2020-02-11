@@ -13,7 +13,7 @@ class AddCardViewController: UIViewController {
     
     private let addCardView = CreateCardsView()
     
-    public var dataPersistence: DataPersistence<FlashCards>!
+    public var dataPersistence: DataPersistence<Card>!
     override func loadView() {
         view = addCardView
     }

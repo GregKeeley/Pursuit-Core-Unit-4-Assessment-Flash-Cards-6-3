@@ -13,22 +13,37 @@ class FlashCardsViewController: UIViewController {
     
     private let flashCardView = FlashCardsView()
     
-    public var dataPersistence: DataPersistence<FlashCards>!
+    public var dataPersistence: DataPersistence<Card>!
     
-
+    private var flashCards = [Card]() {
+        didSet {
+            if flashCards.isEmpty {
+                flashCardView.collectionView.backgroundView = EmptyView(title: "Flash Card Collection is Empty", message: "You can add flash cards by making your own in the create tab, or using the suggestions in the search tab")
+            } else {
+                flashCardView.collectionView.backgroundView = nil
+                flashCardView.collectionView.reloadData()
+            }
+        }
+    }
     
     override func loadView() {
         view = flashCardView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        getFlashCards()
         flashCardView.collectionView.delegate = self
         flashCardView.collectionView.dataSource = self
         flashCardView.collectionView.register(MainFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
     }
 
-
+    private func getFlashCards() {
+        do {
+            flashCards = try dataPersistence.loadItems()
+        } catch {
+            print("Failed to load flash cards: \(error)")
+        }
+    }
    
 }
 extension FlashCardsViewController: UICollectionViewDelegateFlowLayout {
@@ -42,7 +57,7 @@ extension FlashCardsViewController: UICollectionViewDelegateFlowLayout {
 }
 extension FlashCardsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return flashCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

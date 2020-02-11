@@ -24,6 +24,7 @@
 		C14D10EB23F2FE4000EE21F2 /* FlashCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */; };
 		C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */; };
 		C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230623F319BA00648095 /* MainFlashCardCell.swift */; };
+		C1D8230923F3220E00648095 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230823F3220E00648095 /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCards.swift; sourceTree = "<group>"; };
 		C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAPI.swift; sourceTree = "<group>"; };
 		C1D8230623F319BA00648095 /* MainFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlashCardCell.swift; sourceTree = "<group>"; };
+		C1D8230823F3220E00648095 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				C14D10DF23F2FD0200EE21F2 /* FlashCardsView.swift */,
 				C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */,
 				C14D10E323F2FD5A00EE21F2 /* SearchView.swift */,
+				C1D8230823F3220E00648095 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				C14D10DD23F2FCDD00EE21F2 /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				C1D8230923F3220E00648095 /* EmptyView.swift in Sources */,
 				C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
