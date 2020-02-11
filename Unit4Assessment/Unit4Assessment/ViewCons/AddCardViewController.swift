@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import DataPersistence
 
 class AddCardViewController: UIViewController {
-
+    
+    public var dataPersistence: DataPersistence<FlashCard>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray

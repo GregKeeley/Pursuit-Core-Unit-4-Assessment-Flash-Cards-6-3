@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import DataPersistence
 
 class SearchViewController: UIViewController {
-
+    
+    public var dataPersistence: DataPersistence<FlashCard>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
