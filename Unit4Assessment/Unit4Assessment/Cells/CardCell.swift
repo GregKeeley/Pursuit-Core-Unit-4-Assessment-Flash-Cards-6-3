@@ -53,10 +53,10 @@ class CardCell: UICollectionViewCell {
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-        questionLabel.topAnchor.constraint(equalTo: topAnchor),
-        questionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-        questionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-        questionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        answerLabel.topAnchor.constraint(equalTo: topAnchor),
+        answerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+        answerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+        answerLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         
         ])
     }

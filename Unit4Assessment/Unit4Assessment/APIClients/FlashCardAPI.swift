@@ -11,7 +11,8 @@ import NetworkHelper
 
 struct FlashCardAPI {
     static func getFlashCards(completion: @escaping (Result<FlashCards,AppError>) -> ()) {
-        let endpoint = ""
+        let endpoint = "https://5daf8b36f2946f001481d81c.mockapi.io/api/v2/cards"
+
                 guard let url = URL(string: endpoint) else {
                     completion(.failure(.badURL(endpoint)))
                     return

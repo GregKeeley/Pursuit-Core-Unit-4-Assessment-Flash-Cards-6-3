@@ -15,11 +15,7 @@ class FlashCardsViewController: UIViewController {
     
     public var dataPersistence: DataPersistence<FlashCards>!
     
-    private var flashCards = [Card]() {
-        didSet {
-            
-        }
-    }
+
     
     override func loadView() {
         view = flashCardView
@@ -31,7 +27,7 @@ class FlashCardsViewController: UIViewController {
         flashCardView.collectionView.dataSource = self
         flashCardView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cardCell")
     }
-    
+
 
    
 }
@@ -55,7 +51,7 @@ extension FlashCardsViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
-        cell.configureCell(flashCards[indexPath.row])
+//        cell.configureCell(flashCards[indexPath.row])
         return cell
     }
     
