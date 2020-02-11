@@ -25,7 +25,7 @@ class FlashCardsViewController: UIViewController {
         view.backgroundColor = .blue
         flashCardView.collectionView.delegate = self
         flashCardView.collectionView.dataSource = self
-        flashCardView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cardCell")
+        flashCardView.collectionView.register(MainFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
     }
 
 
@@ -46,7 +46,7 @@ extension FlashCardsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? MainFlashCardCell else {
             fatalError("Failed to downcast as \"cardCell")
         }
         cell.backgroundColor = .white

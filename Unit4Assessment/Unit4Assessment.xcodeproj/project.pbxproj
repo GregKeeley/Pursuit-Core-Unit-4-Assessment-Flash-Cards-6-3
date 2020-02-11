@@ -23,6 +23,7 @@
 		C14D10E923F2FE2A00EE21F2 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E823F2FE2A00EE21F2 /* CardCell.swift */; };
 		C14D10EB23F2FE4000EE21F2 /* FlashCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */; };
 		C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */; };
+		C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230623F319BA00648095 /* MainFlashCardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C14D10E823F2FE2A00EE21F2 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCards.swift; sourceTree = "<group>"; };
 		C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAPI.swift; sourceTree = "<group>"; };
+		C1D8230623F319BA00648095 /* MainFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlashCardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				C14D10E823F2FE2A00EE21F2 /* CardCell.swift */,
+				C1D8230623F319BA00648095 /* MainFlashCardCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */,
 				C14D10DB23F2FCC400EE21F2 /* SearchViewController.swift in Sources */,
 				C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */,
+				C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */,
 				C14D10D923F2FCB800EE21F2 /* AddCardViewController.swift in Sources */,
 				C14D10E923F2FE2A00EE21F2 /* CardCell.swift in Sources */,
 				C14D10D723F2FCA700EE21F2 /* FlashCardsViewController.swift in Sources */,

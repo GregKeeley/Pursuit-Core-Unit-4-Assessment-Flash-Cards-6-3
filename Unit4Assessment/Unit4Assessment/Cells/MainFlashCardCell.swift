@@ -1,14 +1,15 @@
 //
-//  CardCell.swift
+//  MainFlashCardCell.swift
 //  Unit4Assessment
 //
 //  Created by Gregory Keeley on 2/11/20.
 //  Copyright © 2020 Alex Paul. All rights reserved.
 //
 
+
 import UIKit
 
-class CardCell: UICollectionViewCell {
+class MainFlashCardCell: UICollectionViewCell {
     
     private var currentFlashCard: Card!
     
@@ -25,8 +26,7 @@ class CardCell: UICollectionViewCell {
     }()
     public lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        button.tintColor = .green
+        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
