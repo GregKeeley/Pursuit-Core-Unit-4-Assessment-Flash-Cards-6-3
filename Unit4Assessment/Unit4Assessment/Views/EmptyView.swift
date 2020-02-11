@@ -49,8 +49,6 @@ class EmptyView: UIView {
             messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             messageLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.95)
-//            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-//            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         
         ])
     }
@@ -62,8 +60,6 @@ class EmptyView: UIView {
             titleLabel.bottomAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8),
                         titleLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.95),
                         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-//            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-//            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
             
         ])
     }

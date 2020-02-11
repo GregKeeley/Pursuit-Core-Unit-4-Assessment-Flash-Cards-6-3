@@ -13,6 +13,8 @@ class MainFlashCardCell: UICollectionViewCell {
     
     private var currentFlashCard: Card!
     
+    weak var delegate: SavedFlashCardDelegate?
+    
     public lazy var questionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0

@@ -9,6 +9,10 @@
 import UIKit
 import DataPersistence
 
+protocol SavedFlashCardDelegate: AnyObject {
+    func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, savedFlashCard: Card)
+}
+
 class FlashCardsViewController: UIViewController {
     
     private let flashCardView = FlashCardsView()
@@ -21,6 +25,7 @@ class FlashCardsViewController: UIViewController {
                 flashCardView.collectionView.backgroundView = EmptyView(title: "Flash Card Collection is Empty", message: "You can add flash cards by making your own in the create tab, or using the suggestions in the search tab")
             } else {
                 flashCardView.collectionView.backgroundView = nil
+                print(flashCards.count)
                 flashCardView.collectionView.reloadData()
             }
         }
@@ -37,15 +42,29 @@ class FlashCardsViewController: UIViewController {
         flashCardView.collectionView.register(MainFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
         navigationItem.title = "All Flashcards"
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        getFlashCards()
+    }
     private func getFlashCards() {
         do {
             flashCards = try dataPersistence.loadItems()
+            
         } catch {
             print("Failed to load flash cards: \(error)")
         }
     }
    
+}
+extension FlashCardsViewController: DataPersistenceDelegate {
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getFlashCards()
+    }
+    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getFlashCards()
+    }
+    
+    
 }
 extension FlashCardsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -70,7 +89,7 @@ extension FlashCardsViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
-//        cell.configureCell(flashCards[indexPath.row])
+        cell.configureCell(flashCards[indexPath.row])
         return cell
     }
     

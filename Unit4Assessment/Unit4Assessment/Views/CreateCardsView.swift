@@ -16,16 +16,14 @@ class CreateCardsView: UIView {
         textField.placeholder = "Enter Question here"
         return textField
     }()
-    public lazy var fact1TextField: UITextField = {
-        let textField = UITextField()
+    public lazy var fact1TextView: UITextView = {
+        let textField = UITextView()
         textField.backgroundColor = .white
-        textField.placeholder = "Enter Fact #1 here"
         return textField
     }()
-    public lazy var fact2TextField: UITextField = {
-        let textField = UITextField()
+    public lazy var fact2TextView: UITextView = {
+        let textField = UITextView()
         textField.backgroundColor = .white
-        textField.placeholder = "Enter fact #2 here"
         return textField
     }()
     
@@ -55,26 +53,26 @@ class CreateCardsView: UIView {
         ])
     }
     private func constraintsFact1TextField() {
-        addSubview(fact1TextField)
-        fact1TextField.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(fact1TextView)
+        fact1TextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-            fact1TextField.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: 10),
-            fact1TextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            fact1TextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            fact1TextField.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height / 4)
+            fact1TextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: 10),
+            fact1TextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            fact1TextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            fact1TextView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height / 4)
         
         ])
     }
     private func constraintsFact2TextField() {
-        addSubview(fact2TextField)
-        fact2TextField.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(fact2TextView)
+        fact2TextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-            fact2TextField.topAnchor.constraint(equalTo: fact1TextField.bottomAnchor, constant: 10),
-            fact2TextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            fact2TextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            fact2TextField.heightAnchor.constraint(equalTo: fact1TextField.heightAnchor)
+            fact2TextView.topAnchor.constraint(equalTo: fact1TextView.bottomAnchor, constant: 10),
+            fact2TextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            fact2TextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            fact2TextView.heightAnchor.constraint(equalTo: fact1TextView.heightAnchor)
         
         ])
     }

@@ -11,6 +11,7 @@ import UIKit
 class SearchFlashCardCell: UICollectionViewCell {
     
     private var currentFlashCard: Card!
+    weak var delegate: SavedFlashCardDelegate?
     
     public lazy var questionLabel: UILabel = {
         let label = UILabel()
@@ -27,17 +28,17 @@ class SearchFlashCardCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.tintColor = .green
-//        button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         return button
     }()
     public lazy var cellButton: UIButton = {
         let button = UIButton()
-        button.tintColor = .blue
-        button.alpha = 0.30
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
-    
+    @objc private func addButtonPressed(_ sender: UIButton) {
+        delegate?.flashCardAdded(self, savedFlashCard: currentFlashCard)
+    }
     public func configureCell(_ flashCard: Card) {
         questionLabel.text = flashCard.cardTitle
         questionLabel.text = flashCard.quizTitle
@@ -59,7 +60,7 @@ class SearchFlashCardCell: UICollectionViewCell {
     }()
     @objc private func didTapAddButton(_ gesture: UITapGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
-            animate()
+            
             return
         }
     }
@@ -144,7 +145,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         cellButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-            cellButton.topAnchor.constraint(equalTo: topAnchor),
+            cellButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cellButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellButton.bottomAnchor.constraint(equalTo: bottomAnchor)
