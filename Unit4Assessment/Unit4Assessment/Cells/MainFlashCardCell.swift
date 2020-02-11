@@ -34,6 +34,9 @@ class MainFlashCardCell: UICollectionViewCell {
     }()
     public lazy var cellButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .blue
+        button.alpha = 0.20
+        button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
@@ -53,6 +56,7 @@ class MainFlashCardCell: UICollectionViewCell {
     public func configureCell(_ flashCard: Card) {
         currentFlashCard = flashCard
         questionLabel.text = flashCard.cardTitle
+        questionLabel.text = flashCard.quizTitle
         for fact in flashCard.facts {
             answerLabel.text = fact
         }
@@ -131,7 +135,8 @@ class MainFlashCardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
         
             addButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            addButton.bottomAnchor.constraint(equalTo: cellButton.topAnchor, constant: 10)
         
         ])
     }
@@ -139,8 +144,8 @@ class MainFlashCardCell: UICollectionViewCell {
         addSubview(cellButton)
         cellButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        
-            cellButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 10),
+            
+            cellButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             cellButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellButton.bottomAnchor.constraint(equalTo: bottomAnchor)

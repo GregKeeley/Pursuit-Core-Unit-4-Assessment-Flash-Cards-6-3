@@ -69,7 +69,7 @@ extension FlashCardsViewController: DataPersistenceDelegate {
 // custom delegation
 extension FlashCardsViewController: SavedFlashCardDelegate {
     func didSelectMoreButton(_ savedFlashCardCell: MainFlashCardCell, flashCard: Card) {
-            print("didSelectMoreButton: \(flashCard.cardTitle!)")
+            print("didSelectMoreButton: \(flashCard.quizTitle!)")
           let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in

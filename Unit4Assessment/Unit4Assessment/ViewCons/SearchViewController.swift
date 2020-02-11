@@ -9,13 +9,13 @@
 import UIKit
 import DataPersistence
 
-protocol SearchFlashCardDelegate {
+protocol SearchFlashCardDelegate: AnyObject {
     func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, flashCard: Card)
 }
 
 class SearchViewController: UIViewController {
-    // TODO: Add "weak" var
-     var delegate: SearchFlashCardDelegate?
+    
+    weak var delegate: SearchFlashCardDelegate?
     
     private let searchView = SearchView()
     
@@ -69,8 +69,7 @@ class SearchViewController: UIViewController {
 }
 extension SearchViewController: SearchFlashCardDelegate {
     func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, flashCard: Card) {
-        guard let flashCard = self.flashCard else { return }
-        do {
+            do {
             try dataPersistence.createItem(flashCard)
             showAlert(title: "Flash card Saved", message: "You can now view this card in your collection")
         } catch {

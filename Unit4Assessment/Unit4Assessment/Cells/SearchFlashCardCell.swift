@@ -11,8 +11,8 @@ import UIKit
 class SearchFlashCardCell: UICollectionViewCell {
     
     private var currentFlashCard: Card!
-    // TODO: Add "weak" var
-    var delegate: SearchFlashCardDelegate?
+    weak var delegate: SearchFlashCardDelegate?
+    
     @objc func addButtonPressed(_ sender: UIButton) {
         delegate?.flashCardAdded(self, flashCard: currentFlashCard)
     }
@@ -58,7 +58,7 @@ class SearchFlashCardCell: UICollectionViewCell {
     }()
     private lazy var addQuestionTapGesture: UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer()
-        gesture.addTarget(self, action: #selector(didTap(_:)))
+        gesture.addTarget(self, action: #selector(addButtonPressed(_:)))
         return gesture
     }()
     @objc private func didTapAddButton(_ gesture: UITapGestureRecognizer) {

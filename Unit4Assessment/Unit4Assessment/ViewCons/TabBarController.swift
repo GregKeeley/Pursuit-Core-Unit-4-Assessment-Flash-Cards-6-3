@@ -17,6 +17,7 @@ class TabBarController: UITabBarController {
         let viewController = FlashCardsViewController()
         viewController.tabBarItem = UITabBarItem(title: "Flash Cards", image: UIImage(systemName: "questionmark.circle"), tag: 0)
         viewController.dataPersistence = dataPersistence
+        viewController.dataPersistence.delegate = viewController
         return viewController
     }()
     private lazy var addCardVC: AddCardViewController = {
@@ -29,6 +30,7 @@ class TabBarController: UITabBarController {
         let viewController = SearchViewController()
         viewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 2)
         viewController.dataPersistence = dataPersistence
+        
         return viewController
     }()
     
