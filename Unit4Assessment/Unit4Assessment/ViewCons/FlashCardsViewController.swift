@@ -55,6 +55,9 @@ extension FlashCardsViewController: UICollectionViewDelegateFlowLayout {
         let adjustedHeight = (maxHeight * 0.30)
         return CGSize(width: adjustedWidth, height: adjustedHeight)
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
 }
 extension FlashCardsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

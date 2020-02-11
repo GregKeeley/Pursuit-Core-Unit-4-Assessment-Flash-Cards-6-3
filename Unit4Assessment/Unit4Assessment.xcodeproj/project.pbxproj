@@ -26,6 +26,7 @@
 		C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230623F319BA00648095 /* MainFlashCardCell.swift */; };
 		C1D8230923F3220E00648095 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230823F3220E00648095 /* EmptyView.swift */; };
 		C1D8230D23F32CE600648095 /* FlashCardJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = C1D8230C23F32CE600648095 /* FlashCardJSONData.json */; };
+		C1D8230F23F3356700648095 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230E23F3356700648095 /* UIViewController + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		C1D8230623F319BA00648095 /* MainFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlashCardCell.swift; sourceTree = "<group>"; };
 		C1D8230823F3220E00648095 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		C1D8230C23F32CE600648095 /* FlashCardJSONData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FlashCardJSONData.json; sourceTree = "<group>"; };
+		C1D8230E23F3356700648095 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				5790239923F2EE39000AA216 /* SceneDelegate.swift */,
 				579023A023F2EE3B000AA216 /* Assets.xcassets */,
 				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
+				C1D8230E23F3356700648095 /* UIViewController + Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				C14D10E923F2FE2A00EE21F2 /* SearchFlashCardCell.swift in Sources */,
 				C14D10D723F2FCA700EE21F2 /* FlashCardsViewController.swift in Sources */,
 				C14D10DD23F2FCDD00EE21F2 /* TabBarController.swift in Sources */,
+				C1D8230F23F3356700648095 /* UIViewController + Extensions.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 				C1D8230923F3220E00648095 /* EmptyView.swift in Sources */,

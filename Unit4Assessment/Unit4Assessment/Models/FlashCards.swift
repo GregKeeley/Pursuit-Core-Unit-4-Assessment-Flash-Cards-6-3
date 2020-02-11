@@ -14,7 +14,7 @@ struct FlashCards: Codable & Equatable {
 }
 struct Card: Codable & Equatable {
     let id: String
-    let cardTitle: String?
+    var cardTitle: String?
     let quizTitle: String?
-    let facts: [String]
+    var facts: [String]
 }

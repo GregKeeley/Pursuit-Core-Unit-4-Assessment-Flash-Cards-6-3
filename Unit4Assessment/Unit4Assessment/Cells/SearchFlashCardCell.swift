@@ -27,10 +27,16 @@ class SearchFlashCardCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.tintColor = .green
+//        button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
+        return button
+    }()
+    public lazy var cellButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .blue
+        button.alpha = 0.30
         button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
         return button
     }()
-    
     
     public func configureCell(_ flashCard: Card) {
         questionLabel.text = flashCard.cardTitle
@@ -96,6 +102,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         constraintsFactsLabel()
         constraintsQuestionLabel()
         constraintsAddButton()
+        constraintsCellButton()
         addGestureRecognizer(tapFlipCardGesture)
     }
     private func constraintsQuestionLabel() {
@@ -129,6 +136,18 @@ class SearchFlashCardCell: UICollectionViewCell {
         
             addButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+        
+        ])
+    }
+    private func constraintsCellButton() {
+        addSubview(cellButton)
+        cellButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            cellButton.topAnchor.constraint(equalTo: topAnchor),
+            cellButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cellButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cellButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         ])
     }

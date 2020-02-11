@@ -20,7 +20,7 @@ class EmptyView: UIView {
     public lazy var messageLabel: UILabel =  {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        label.numberOfLines = 4
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.text = "There are no items currently in your collection"
         return label
@@ -41,17 +41,6 @@ class EmptyView: UIView {
         constraintsTitleLabel()
         
     }
-    private func constraintsTitleLabel() {
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-        
-            titleLabel.bottomAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
-            
-        ])
-    }
     private func constraintsMessageLabel() {
         addSubview(messageLabel)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,9 +48,24 @@ class EmptyView: UIView {
         
             messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            messageLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.95)
+//            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+//            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         
         ])
     }
+    private func constraintsTitleLabel() {
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            titleLabel.bottomAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8),
+                        titleLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.95),
+                        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+//            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+//            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            
+        ])
+    }
+
 }

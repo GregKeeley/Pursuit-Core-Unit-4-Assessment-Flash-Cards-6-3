@@ -21,10 +21,9 @@ class SearchViewController: UIViewController {
             } else {
                 searchView.collectionView.backgroundView = nil
                 DispatchQueue.main.async {
-                    dump(self.flashCards)
                     self.searchView.collectionView.reloadData()
                 }
-
+                
             }
         }
     }
@@ -47,15 +46,15 @@ class SearchViewController: UIViewController {
         } catch {
             print("Failed to parse local flash card: \(error)")
         }
-
-//        FlashCardAPI.getFlashCards() { [weak self] (result) in
-//            switch result {
-//            case .failure(let appError):
-//                print("failed to load flashCards: \(appError)")
-//            case .success(let flashCards):
-//                self?.flashCards = flashCards.cards
-//            }
-//        }
+        // NOTE: API went 503, changed out function to parse local data in meantime
+        //        FlashCardAPI.getFlashCards() { [weak self] (result) in
+        //            switch result {
+        //            case .failure(let appError):
+        //                print("failed to load flashCards: \(appError)")
+        //            case .success(let flashCards):
+        //                self?.flashCards = flashCards.cards
+        //            }
+        //        }
     }
     
 }
@@ -67,6 +66,9 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let maxHeight = (UIScreen.main.bounds.height)
         let adjustedHeight = (maxHeight * 0.30)
         return CGSize(width: adjustedWidth, height: adjustedHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
 }
 extension SearchViewController: UICollectionViewDataSource {
