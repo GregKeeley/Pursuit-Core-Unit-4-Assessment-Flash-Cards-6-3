@@ -25,23 +25,23 @@ class Unit4AssessmentTests: XCTestCase {
                                ]
                            }]
                         }
-        """.data(using: .utf8)
+        """.data(using: .utf8)!
         struct FlashCard: Codable & Equatable {
             let cardListType: String
-            let cards: Cards
+            let cards: [Cards]
         }
         struct Cards: Codable & Equatable {
             let id: String
             let cardTitle: String
-            let facts: String
+            let facts: [String]
         }
         let expectedCardTitle = "What is the difference between a synchronous & an asynchronous task?"
         do  {
             let flashCard = try JSONDecoder().decode(FlashCard.self, from: jsonData)
-            let actualTitle = flashCard
+            let actualTitle = flashCard.cards.first?.cardTitle
             XCTAssertEqual(expectedCardTitle, actualTitle)
         } catch {
-            
+            XCTFail("Decoding error: \(error)")
             
         }
     }
