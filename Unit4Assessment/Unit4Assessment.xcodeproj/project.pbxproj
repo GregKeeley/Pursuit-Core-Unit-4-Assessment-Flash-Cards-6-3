@@ -21,7 +21,7 @@
 		C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */; };
 		C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E323F2FD5A00EE21F2 /* SearchView.swift */; };
 		C14D10E923F2FE2A00EE21F2 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E823F2FE2A00EE21F2 /* CardCell.swift */; };
-		C14D10EB23F2FE4000EE21F2 /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EA23F2FE4000EE21F2 /* FlashCard.swift */; };
+		C14D10EB23F2FE4000EE21F2 /* FlashCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */; };
 		C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardsView.swift; sourceTree = "<group>"; };
 		C14D10E323F2FD5A00EE21F2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C14D10E823F2FE2A00EE21F2 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
-		C14D10EA23F2FE4000EE21F2 /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
+		C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCards.swift; sourceTree = "<group>"; };
 		C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,7 @@
 		C14D10E523F2FD9C00EE21F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C14D10EA23F2FE4000EE21F2 /* FlashCard.swift */,
+				C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C14D10E023F2FD0200EE21F2 /* FlashCardsView.swift in Sources */,
-				C14D10EB23F2FE4000EE21F2 /* FlashCard.swift in Sources */,
+				C14D10EB23F2FE4000EE21F2 /* FlashCards.swift in Sources */,
 				C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */,
 				C14D10DB23F2FCC400EE21F2 /* SearchViewController.swift in Sources */,
 				C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */,

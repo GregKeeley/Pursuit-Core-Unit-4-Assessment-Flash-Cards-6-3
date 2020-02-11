@@ -11,7 +11,7 @@ import DataPersistence
 
 class SearchViewController: UIViewController {
     
-    public var dataPersistence: DataPersistence<FlashCard>!
+    public var dataPersistence: DataPersistence<FlashCards>!
     
     override func viewDidLoad() {
         super.viewDidLoad()

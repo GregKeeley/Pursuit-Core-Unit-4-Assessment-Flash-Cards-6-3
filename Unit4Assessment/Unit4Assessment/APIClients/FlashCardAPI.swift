@@ -10,7 +10,7 @@ import Foundation
 import NetworkHelper
 
 struct FlashCardAPI {
-    static func getFlashCards(completion: @escaping (Result<FlashCard,AppError>) -> ()) {
+    static func getFlashCards(completion: @escaping (Result<FlashCards,AppError>) -> ()) {
         let endpoint = ""
                 guard let url = URL(string: endpoint) else {
                     completion(.failure(.badURL(endpoint)))
@@ -23,7 +23,7 @@ struct FlashCardAPI {
                         completion(.failure(.networkClientError(appError)))
                     case .success(let flashCardData):
                         do {
-                            let flashCards = try JSONDecoder().decode(FlashCard.self, from: flashCardData)
+                            let flashCards = try JSONDecoder().decode(FlashCards.self, from: flashCardData)
                             completion(.success(flashCards))
                         } catch {
                             completion(.failure(.decodingError(error)))
