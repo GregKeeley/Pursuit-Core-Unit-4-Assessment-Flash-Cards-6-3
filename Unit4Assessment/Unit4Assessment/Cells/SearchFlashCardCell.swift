@@ -10,6 +10,12 @@ import UIKit
 
 class SearchFlashCardCell: UICollectionViewCell {
     
+    private var currentFlashCard: Card!
+    // TODO: Add "weak" var
+    var delegate: SearchFlashCardDelegate?
+    @objc func addButtonPressed(_ sender: UIButton) {
+        delegate?.flashCardAdded(self, flashCard: currentFlashCard)
+    }
     public lazy var questionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -25,7 +31,7 @@ class SearchFlashCardCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         button.tintColor = .green
-        button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addButtonPressed(_:)), for: .touchUpInside)
         return button
     }()
     public lazy var cellButton: UIButton = {
@@ -35,6 +41,7 @@ class SearchFlashCardCell: UICollectionViewCell {
     }()
     
     public func configureCell(_ flashCard: Card) {
+        currentFlashCard = flashCard
         questionLabel.text = flashCard.cardTitle
         questionLabel.text = flashCard.quizTitle
         for fact in flashCard.facts {
@@ -43,6 +50,7 @@ class SearchFlashCardCell: UICollectionViewCell {
     }
     
     private var isShowingAnswer = false
+    
     private lazy var tapFlipCardGesture: UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer()
         gesture.addTarget(self, action: #selector(didTap(_:)))
@@ -71,14 +79,14 @@ class SearchFlashCardCell: UICollectionViewCell {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
                 self.questionLabel.alpha = 1
                 self.answerLabel.alpha = 0
-                self.isShowingAnswer = true
+                self.isShowingAnswer = false
                 self.layoutIfNeeded()
             }, completion: nil)
         } else {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
-                self.isShowingAnswer = false
                 self.questionLabel.alpha = 0
                 self.answerLabel.alpha = 1
+                self.isShowingAnswer = true
                 self.layoutIfNeeded()
             }, completion: nil)
         }

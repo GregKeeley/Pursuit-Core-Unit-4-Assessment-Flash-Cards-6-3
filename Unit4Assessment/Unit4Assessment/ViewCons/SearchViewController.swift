@@ -9,11 +9,19 @@
 import UIKit
 import DataPersistence
 
+protocol SearchFlashCardDelegate {
+    func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, flashCard: Card)
+}
+
 class SearchViewController: UIViewController {
+    // TODO: Add "weak" var
+     var delegate: SearchFlashCardDelegate?
     
     private let searchView = SearchView()
     
     public var dataPersistence: DataPersistence<Card>!
+    
+    public var flashCard: Card?
     
     private var flashCards = [Card]() {
         didSet {
@@ -59,6 +67,19 @@ class SearchViewController: UIViewController {
     }
     
 }
+extension SearchViewController: SearchFlashCardDelegate {
+    func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, flashCard: Card) {
+        guard let flashCard = self.flashCard else { return }
+        do {
+            try dataPersistence.createItem(flashCard)
+            showAlert(title: "Flash card Saved", message: "You can now view this card in your collection")
+        } catch {
+            showAlert(title: "Error", message: "There was an error adding this card to your collection")
+        }
+    }
+    
+}
+    
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -83,6 +104,7 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
+        cell.delegate = self
         cell.configureCell(flashCards[indexPath.row])
         return cell
     }

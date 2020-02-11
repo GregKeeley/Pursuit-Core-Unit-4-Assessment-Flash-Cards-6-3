@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 // custom Delegation
 protocol SavedFlashCardDelegate: AnyObject {
-    func didSelectMoreButton(_ savedFlashCardCell: MainFlashCardCell, flashCard: Card)
+    func didSelectMoreButton(_ mainFlashCardCell: MainFlashCardCell, flashCard: Card)
 }
 
 class FlashCardsViewController: UIViewController {

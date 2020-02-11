@@ -71,12 +71,12 @@ class MainFlashCardCell: UICollectionViewCell {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
                 self.questionLabel.alpha = 1
                 self.answerLabel.alpha = 0
-                self.isShowingAnswer = true
+                self.isShowingAnswer = false
                 self.layoutIfNeeded()
             }, completion: nil)
         } else {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
-                self.isShowingAnswer = false
+                self.isShowingAnswer = true
                 self.questionLabel.alpha = 0
                 self.answerLabel.alpha = 1
                 self.layoutIfNeeded()
@@ -140,7 +140,7 @@ class MainFlashCardCell: UICollectionViewCell {
         cellButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-            cellButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            cellButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 10),
             cellButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellButton.bottomAnchor.constraint(equalTo: bottomAnchor)
