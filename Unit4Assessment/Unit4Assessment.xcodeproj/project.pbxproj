@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239723F2EE39000AA216 /* AppDelegate.swift */; };
 		5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239923F2EE39000AA216 /* SceneDelegate.swift */; };
-		5790239C23F2EE39000AA216 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239B23F2EE39000AA216 /* ViewController.swift */; };
 		579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579023A023F2EE3B000AA216 /* Assets.xcassets */; };
 		579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */; };
 		579023AF23F2EE3B000AA216 /* Unit4AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */; };
+		C14D10D723F2FCA700EE21F2 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10D623F2FCA700EE21F2 /* CardsViewController.swift */; };
+		C14D10D923F2FCB800EE21F2 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10D823F2FCB800EE21F2 /* AddCardViewController.swift */; };
+		C14D10DB23F2FCC400EE21F2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10DA23F2FCC400EE21F2 /* SearchViewController.swift */; };
+		C14D10DD23F2FCDD00EE21F2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10DC23F2FCDD00EE21F2 /* TabBarController.swift */; };
+		C14D10E023F2FD0200EE21F2 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10DF23F2FD0200EE21F2 /* CardsView.swift */; };
+		C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */; };
+		C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E323F2FD5A00EE21F2 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +35,19 @@
 		5790239423F2EE39000AA216 /* Unit4Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unit4Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5790239723F2EE39000AA216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5790239923F2EE39000AA216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5790239B23F2EE39000AA216 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		579023A023F2EE3B000AA216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		579023A323F2EE3B000AA216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		579023A523F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		579023AA23F2EE3B000AA216 /* Unit4AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unit4AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit4AssessmentTests.swift; sourceTree = "<group>"; };
 		579023B023F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C14D10D623F2FCA700EE21F2 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		C14D10D823F2FCB800EE21F2 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		C14D10DA23F2FCC400EE21F2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C14D10DC23F2FCDD00EE21F2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C14D10DF23F2FD0200EE21F2 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardsView.swift; sourceTree = "<group>"; };
+		C14D10E323F2FD5A00EE21F2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +89,12 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				C14D10E723F2FDC900EE21F2 /* Cells */,
+				C14D10D523F2FC8500EE21F2 /* ViewCons */,
+				C14D10DE23F2FCE800EE21F2 /* Views */,
+				C14D10E523F2FD9C00EE21F2 /* Models */,
+				C14D10E623F2FDAF00EE21F2 /* APIClients */,
 				C14D10D423F2FC3700EE21F2 /* Supporting Files */,
-				5790239B23F2EE39000AA216 /* ViewController.swift */,
-				579023A023F2EE3B000AA216 /* Assets.xcassets */,
-				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
 				579023A523F2EE3B000AA216 /* Info.plist */,
 			);
 			path = Unit4Assessment;
@@ -100,8 +114,52 @@
 			children = (
 				5790239723F2EE39000AA216 /* AppDelegate.swift */,
 				5790239923F2EE39000AA216 /* SceneDelegate.swift */,
+				579023A023F2EE3B000AA216 /* Assets.xcassets */,
+				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C14D10D523F2FC8500EE21F2 /* ViewCons */ = {
+			isa = PBXGroup;
+			children = (
+				C14D10D623F2FCA700EE21F2 /* CardsViewController.swift */,
+				C14D10D823F2FCB800EE21F2 /* AddCardViewController.swift */,
+				C14D10DA23F2FCC400EE21F2 /* SearchViewController.swift */,
+				C14D10DC23F2FCDD00EE21F2 /* TabBarController.swift */,
+			);
+			path = ViewCons;
+			sourceTree = "<group>";
+		};
+		C14D10DE23F2FCE800EE21F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C14D10DF23F2FD0200EE21F2 /* CardsView.swift */,
+				C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */,
+				C14D10E323F2FD5A00EE21F2 /* SearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C14D10E523F2FD9C00EE21F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C14D10E623F2FDAF00EE21F2 /* APIClients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIClients;
+			sourceTree = "<group>";
+		};
+		C14D10E723F2FDC900EE21F2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5790239C23F2EE39000AA216 /* ViewController.swift in Sources */,
+				C14D10E023F2FD0200EE21F2 /* CardsView.swift in Sources */,
+				C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */,
+				C14D10DB23F2FCC400EE21F2 /* SearchViewController.swift in Sources */,
+				C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */,
+				C14D10D923F2FCB800EE21F2 /* AddCardViewController.swift in Sources */,
+				C14D10D723F2FCA700EE21F2 /* CardsViewController.swift in Sources */,
+				C14D10DD23F2FCDD00EE21F2 /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 			);
