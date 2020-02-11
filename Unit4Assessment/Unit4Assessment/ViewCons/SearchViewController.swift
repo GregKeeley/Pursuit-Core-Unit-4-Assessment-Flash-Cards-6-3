@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .green
         searchView.collectionView.delegate = self
         searchView.collectionView.dataSource = self
-        searchView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cardCell")
+        searchView.collectionView.register(SearchFlashCardCell.self, forCellWithReuseIdentifier: "cardCell")
         fetchFlashCards()
     }
     private func fetchFlashCards() {
@@ -58,7 +58,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? SearchFlashCardCell else {
             fatalError("Failed to downcast as \"cardCell")
         }
         cell.backgroundColor = .white

@@ -11,8 +11,12 @@ import DataPersistence
 
 class AddCardViewController: UIViewController {
     
-    public var dataPersistence: DataPersistence<FlashCards>!
+    private let addCardView = CreateCardsView()
     
+    public var dataPersistence: DataPersistence<FlashCards>!
+    override func loadView() {
+        view = addCardView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardCell: UICollectionViewCell {
+class SearchFlashCardCell: UICollectionViewCell {
     
     private var currentFlashCard: Card!
     

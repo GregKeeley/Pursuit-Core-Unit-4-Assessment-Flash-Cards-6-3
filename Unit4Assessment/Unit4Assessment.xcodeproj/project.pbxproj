@@ -20,7 +20,7 @@
 		C14D10E023F2FD0200EE21F2 /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10DF23F2FD0200EE21F2 /* FlashCardsView.swift */; };
 		C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */; };
 		C14D10E423F2FD5A00EE21F2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E323F2FD5A00EE21F2 /* SearchView.swift */; };
-		C14D10E923F2FE2A00EE21F2 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E823F2FE2A00EE21F2 /* CardCell.swift */; };
+		C14D10E923F2FE2A00EE21F2 /* SearchFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10E823F2FE2A00EE21F2 /* SearchFlashCardCell.swift */; };
 		C14D10EB23F2FE4000EE21F2 /* FlashCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */; };
 		C14D10ED23F2FE5C00EE21F2 /* FlashCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */; };
 		C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8230623F319BA00648095 /* MainFlashCardCell.swift */; };
@@ -53,7 +53,7 @@
 		C14D10DF23F2FD0200EE21F2 /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
 		C14D10E123F2FD3A00EE21F2 /* CreateCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardsView.swift; sourceTree = "<group>"; };
 		C14D10E323F2FD5A00EE21F2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		C14D10E823F2FE2A00EE21F2 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		C14D10E823F2FE2A00EE21F2 /* SearchFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlashCardCell.swift; sourceTree = "<group>"; };
 		C14D10EA23F2FE4000EE21F2 /* FlashCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCards.swift; sourceTree = "<group>"; };
 		C14D10EC23F2FE5C00EE21F2 /* FlashCardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAPI.swift; sourceTree = "<group>"; };
 		C1D8230623F319BA00648095 /* MainFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlashCardCell.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		C14D10E723F2FDC900EE21F2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C14D10E823F2FE2A00EE21F2 /* CardCell.swift */,
+				C14D10E823F2FE2A00EE21F2 /* SearchFlashCardCell.swift */,
 				C1D8230623F319BA00648095 /* MainFlashCardCell.swift */,
 			);
 			path = Cells;
@@ -289,7 +289,7 @@
 				C14D10E223F2FD3A00EE21F2 /* CreateCardsView.swift in Sources */,
 				C1D8230723F319BA00648095 /* MainFlashCardCell.swift in Sources */,
 				C14D10D923F2FCB800EE21F2 /* AddCardViewController.swift in Sources */,
-				C14D10E923F2FE2A00EE21F2 /* CardCell.swift in Sources */,
+				C14D10E923F2FE2A00EE21F2 /* SearchFlashCardCell.swift in Sources */,
 				C14D10D723F2FCA700EE21F2 /* FlashCardsViewController.swift in Sources */,
 				C14D10DD23F2FCDD00EE21F2 /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
