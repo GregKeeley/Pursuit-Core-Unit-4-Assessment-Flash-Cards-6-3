@@ -42,7 +42,6 @@ class Unit4AssessmentTests: XCTestCase {
             XCTAssertEqual(expectedCardTitle, actualTitle)
         } catch {
             XCTFail("Decoding error: \(error)")
-            
         }
     }
 
