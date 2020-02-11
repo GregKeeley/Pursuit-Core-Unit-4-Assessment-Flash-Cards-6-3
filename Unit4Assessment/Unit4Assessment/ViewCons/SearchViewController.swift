@@ -16,7 +16,9 @@ class SearchViewController: UIViewController {
     
     private var flashCards = [Card]() {
         didSet {
-            print(flashCards.count)
+            DispatchQueue.main.async {
+                self.searchView.collectionView.reloadData()
+            }
         }
     }
     override func loadView() {
@@ -31,12 +33,12 @@ class SearchViewController: UIViewController {
         fetchFlashCards()
     }
     private func fetchFlashCards() {
-        FlashCardAPI.getFlashCards() { (result) in
+        FlashCardAPI.getFlashCards() { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("failed to load flashCards: \(appError)")
             case .success(let flashCards):
-                self.flashCards = flashCards.cards
+                self?.flashCards = flashCards.cards
             }
         }
     }
@@ -52,7 +54,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 }
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return flashCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,7 +63,7 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 8
-//        cell.configureCell(flashCards[indexPath.row])
+        cell.configureCell(flashCards[indexPath.row])
         return cell
     }
     
