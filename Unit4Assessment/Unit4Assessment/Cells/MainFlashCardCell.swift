@@ -20,7 +20,13 @@ class MainFlashCardCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
-    public lazy var answerLabel: UILabel = {
+    public lazy var answerLabel1: UILabel = {
+        let label = UILabel()
+        label.alpha = 0
+        label.numberOfLines = 0
+        return label
+    }()
+    public lazy var answerLabel2: UILabel = {
         let label = UILabel()
         label.alpha = 0
         label.numberOfLines = 0
@@ -57,9 +63,7 @@ class MainFlashCardCell: UICollectionViewCell {
         currentFlashCard = flashCard
         questionLabel.text = flashCard.cardTitle
         questionLabel.text = flashCard.quizTitle
-        for fact in flashCard.facts {
-            answerLabel.text = fact
-        }
+        answerLabel1.text = ("Fact 1: \(flashCard.facts[0]) Fact 2: \(flashCard.facts[1])")
     }
     
     private var isShowingAnswer = false
@@ -74,7 +78,7 @@ class MainFlashCardCell: UICollectionViewCell {
         if isShowingAnswer {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
                 self.questionLabel.alpha = 1
-                self.answerLabel.alpha = 0
+                self.answerLabel1.alpha = 0
                 self.isShowingAnswer = false
                 self.layoutIfNeeded()
             }, completion: nil)
@@ -82,7 +86,7 @@ class MainFlashCardCell: UICollectionViewCell {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
                 self.isShowingAnswer = true
                 self.questionLabel.alpha = 0
-                self.answerLabel.alpha = 1
+                self.answerLabel1.alpha = 1
                 self.layoutIfNeeded()
             }, completion: nil)
         }
@@ -99,7 +103,7 @@ class MainFlashCardCell: UICollectionViewCell {
     
     
     private func commonInit() {
-        constraintsFactsLabel()
+        constraintsAnswer1Label()
         constraintsQuestionLabel()
         constraintsAddButton()
         constraintsCellButton()
@@ -117,26 +121,26 @@ class MainFlashCardCell: UICollectionViewCell {
         
         ])
     }
-    private func constraintsFactsLabel() {
-        addSubview(answerLabel)
-        answerLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func constraintsAnswer1Label() {
+        addSubview(answerLabel1)
+        answerLabel1.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-        answerLabel.topAnchor.constraint(equalTo: topAnchor),
-        answerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-        answerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-        answerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        answerLabel1.topAnchor.constraint(equalTo: topAnchor),
+        answerLabel1.bottomAnchor.constraint(equalTo: bottomAnchor),
+        answerLabel1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+        answerLabel1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         
         ])
     }
+
     private func constraintsAddButton() {
         addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
             addButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-//            addButton.bottomAnchor.constraint(equalTo: cellButton.topAnchor, constant: 10)
+            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         
         ])
     }
