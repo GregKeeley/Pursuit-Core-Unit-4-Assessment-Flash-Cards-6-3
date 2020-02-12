@@ -36,7 +36,7 @@ class AddCardViewController: UIViewController {
             showAlert(title: "One or more fields left empty", message: "Please fill in each field to save flash card")
             return
         }
-        newFlashCard = Card(id: "", cardTitle: question, quizTitle: "", facts: [fact1! + fact2!])
+        newFlashCard = Card(id: "", cardTitle: question, quizTitle: question, facts: [fact1!] + [fact2!])
         guard let newCard = newFlashCard else { return }
         do {
             try dataPersistence.createItem(newCard)

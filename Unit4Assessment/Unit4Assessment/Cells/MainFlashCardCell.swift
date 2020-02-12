@@ -63,7 +63,10 @@ class MainFlashCardCell: UICollectionViewCell {
         currentFlashCard = flashCard
         questionLabel.text = flashCard.cardTitle
         questionLabel.text = flashCard.quizTitle
-        answerLabel1.text = ("Fact 1: \(flashCard.facts[0]) Fact 2: \(flashCard.facts[1])")
+        answerLabel1.text = ("""
+            Fact 1: \(flashCard.facts.first ?? "N/A")
+            Fact 2: \(flashCard.facts.last ?? "N/A")
+            """)
     }
     
     private var isShowingAnswer = false
