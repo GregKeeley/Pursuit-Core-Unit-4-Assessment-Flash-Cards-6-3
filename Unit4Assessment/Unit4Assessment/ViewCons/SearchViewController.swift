@@ -69,6 +69,10 @@ class SearchViewController: UIViewController {
 }
 extension SearchViewController: SearchFlashCardDelegate {
     func flashCardAdded(_ savedFlashCardCell: SearchFlashCardCell, flashCard: Card) {
+        if dataPersistence.hasItemBeenSaved(flashCard) {
+            showAlert(title: "Item was already saved", message: "Please select a different flash card")
+            return
+        }
             do {
             try dataPersistence.createItem(flashCard)
             showAlert(title: "Flash card Saved", message: "You can now view this card in your collection")
